@@ -34,4 +34,9 @@ public class ProductService {
     public void deleteById(int id) {
         proRepo.deleteById(id);
     }
+
+    // Search method calling repository custom method
+    public List<Product> searchProducts(String query) {
+        return proRepo.search(query);
+    }
 }
