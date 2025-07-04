@@ -24,6 +24,9 @@ public class ProductService {
     }
 
     public Product createProduct(Product product) {
+        if (product.getImageUrl() == null || product.getImageUrl().isEmpty()) {
+            product.setImageUrl("/uploads/NoImageAvailable.jpg"); // 📷 Default image path
+        }
         return proRepo.save(product);
     }
 
