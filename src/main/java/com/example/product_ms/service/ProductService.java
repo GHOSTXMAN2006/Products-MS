@@ -10,30 +10,25 @@ import java.util.Optional;
 
 @Service
 public class ProductService {
+
     @Autowired
     private ProductRepository proRepo;
 
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts() {
         return proRepo.findAll();
     }
 
-    public Product getProductById(int id){
-        Optional<Product> pro = proRepo.findById(id);
-        if(pro.isPresent())
-        {
-            return pro.get();
-        }
-        return null;
+    public Product getProductById(int id) {
+        Optional<Product> product = proRepo.findById(id);
+        return product.orElse(null);
     }
 
-    public Product createProduct(Product pro)
-    {
-        return proRepo.save(pro);
+    public Product createProduct(Product product) {
+        return proRepo.save(product);
     }
 
-    public Product updateProduct(Product pro)
-    {
-        return proRepo.save(pro);
+    public Product updateProduct(Product product) {
+        return proRepo.save(product);
     }
 
     public void deleteById(int id) {

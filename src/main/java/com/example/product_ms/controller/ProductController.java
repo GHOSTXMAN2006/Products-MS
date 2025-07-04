@@ -9,28 +9,28 @@ import java.util.List;
 
 @RestController
 public class ProductController {
+
     @Autowired
     private ProductService productService;
 
     @GetMapping(path = "/products")
-    public List<Product> getAllProducts(){
+    public List<Product> getAllProducts() {
         return productService.getAllProducts();
     }
 
     @GetMapping(path = "/products/{id}")
-    public Product getProductById(@PathVariable int id){
+    public Product getProductById(@PathVariable int id) {
         return productService.getProductById(id);
     }
 
     @PostMapping(path = "/products")
-    public Product createProduct(@RequestBody Product stu){
-        return productService.createProduct(stu);
+    public Product createProduct(@RequestBody Product product) {
+        return productService.createProduct(product);
     }
 
     @PutMapping(path = "/products")
-    public Product updateProduct(@RequestBody Product stu)
-    {
-        return productService.updateProduct(stu);
+    public Product updateProduct(@RequestBody Product product) {
+        return productService.updateProduct(product);
     }
 
     @DeleteMapping(path = "/products/{id}")

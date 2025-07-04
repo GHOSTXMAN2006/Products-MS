@@ -5,30 +5,36 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "products")
 public class Product {
+
     @Id
-    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @Column(name = "description")
+    @Column
     private String description;
 
-    @Column(name = "availability")
+    @Column
     private int availability;
 
+    @Column(name = "image_url") // ✅ NEW field for image URL
+    private String imageUrl;
+
+    // ✅ Constructors
     public Product() {
     }
 
-    public Product(int id, String name, String description, int availability) {
+    public Product(int id, String name, String description, int availability, String imageUrl) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.availability = availability;
+        this.imageUrl = imageUrl;
     }
 
+    // ✅ Getters & Setters
     public int getId() {
         return id;
     }
@@ -59,5 +65,13 @@ public class Product {
 
     public void setAvailability(int availability) {
         this.availability = availability;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
