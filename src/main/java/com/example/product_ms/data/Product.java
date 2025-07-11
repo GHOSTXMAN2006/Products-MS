@@ -19,10 +19,10 @@ public class Product {
     @Column
     private int availability;
 
-    @Column(name = "image_url") // ✅ NEW field for image URL
+    @Column(name = "image_url") // NEW field for image URL
     private String imageUrl;
 
-    // ✅ Constructors
+    // Constructors
     public Product() {
     }
 
@@ -34,7 +34,7 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
-    // ✅ Getters & Setters
+    // Getters & Setters
     public int getId() {
         return id;
     }
